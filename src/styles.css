@@ -1,0 +1,256 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * HydroZen design system — water-inspired palette (navy, intense blue, turquoise),
+ * Outfit for headings and Inter for body text. All colors are oklch tokens.
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Brand tokens */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-ocean: var(--ocean);
+  --color-turquoise: var(--turquoise);
+  --color-turquoise-foreground: var(--turquoise-foreground);
+  --color-mist: var(--mist);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-level-off: var(--level-off);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand palette */
+  --navy: oklch(0.346 0.084 250.4); /* #103B63 */
+  --navy-deep: oklch(0.267 0.061 249.9);
+  --navy-foreground: oklch(1 0 0);
+  --ocean: oklch(0.566 0.14 244.8); /* #087CC2 */
+  --turquoise: oklch(0.69 0.118 207.7); /* #00AFC1 */
+  --turquoise-foreground: oklch(0.267 0.061 249.9);
+  --mist: oklch(0.977 0.005 228.8); /* #F4F8FA */
+  --whatsapp: oklch(0.62 0.16 150);
+  --whatsapp-foreground: oklch(1 0 0);
+  --level-off: oklch(0.42 0.05 250);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.267 0.061 249.9);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.267 0.061 249.9);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.267 0.061 249.9);
+  --primary: oklch(0.566 0.14 244.8);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.977 0.005 228.8);
+  --secondary-foreground: oklch(0.346 0.084 250.4);
+  --muted: oklch(0.955 0.01 230);
+  --muted-foreground: oklch(0.48 0.04 248);
+  --accent: oklch(0.94 0.035 210);
+  --accent-foreground: oklch(0.346 0.084 250.4);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.91 0.015 235);
+  --input: oklch(0.88 0.02 235);
+  --ring: oklch(0.69 0.118 207.7);
+
+  --gradient-hero: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--navy-deep) 96%, transparent) 0%,
+    color-mix(in oklab, var(--navy) 82%, transparent) 34%,
+    color-mix(in oklab, var(--navy) 22%, transparent) 54%,
+    transparent 72%
+  );
+  --gradient-hero-mobile: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--navy-deep) 55%, transparent) 0%,
+    color-mix(in oklab, var(--navy) 80%, transparent) 55%,
+    var(--navy-deep) 100%
+  );
+  --gradient-water: linear-gradient(135deg, var(--ocean), var(--turquoise));
+  --gradient-navy: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  --shadow-card: 0 1px 2px color-mix(in oklab, var(--navy) 6%, transparent),
+    0 12px 32px -12px color-mix(in oklab, var(--navy) 22%, transparent);
+  --shadow-lift: 0 24px 48px -18px color-mix(in oklab, var(--ocean) 40%, transparent);
+  --shadow-glow: 0 10px 30px -8px color-mix(in oklab, var(--turquoise) 55%, transparent);
+
+  --chart-1: var(--ocean);
+  --chart-2: var(--turquoise);
+  --chart-3: var(--navy);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: var(--mist);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility bg-hero-overlay {
+  background-image: var(--gradient-hero-mobile);
+  @media (min-width: 768px) {
+    background-image: var(--gradient-hero);
+  }
+}
+
+@utility bg-water {
+  background-image: var(--gradient-water);
+}
+
+@utility bg-navy-gradient {
+  background-image: var(--gradient-navy);
+}
+
+@utility text-water {
+  background-image: var(--gradient-water);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Subtle wave divider used under section titles */
+@utility wave-line {
+  height: 6px;
+  width: 64px;
+  border-radius: 9999px;
+  background-image: var(--gradient-water);
+}
+
+@keyframes level-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@utility animate-level-pulse {
+  animation: level-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
